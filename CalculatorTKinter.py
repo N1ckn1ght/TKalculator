@@ -50,7 +50,7 @@ def button_pressed(button):
             calc_input.set(string(float(memoryValue) - temp))
             memoryValue = temp
             memoryOperator = "-2"
-        elif (memoryOperator == "="):
+        elif (memoryOperator == "*"):
             temp = value(calc_input.get())
             calc_input.set(string(float(memoryValue) * temp))
             memoryValue = temp
