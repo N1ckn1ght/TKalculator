@@ -116,7 +116,8 @@ def validate(input):
     return True
 
 
-fonts = [tft.Font(family='Helvetica', size=18), tft.Font(family='Helvetica', size=12)]
+sw = float(window.winfo_screenwidth())
+fonts = [tft.Font(family='Helvetica', size=int(sw * 18 / 1366)), tft.Font(family='Helvetica', size=int((sw * 12 / 1366)))]
 
 window.title("Calculator")
 window.resizable(width = False, height = False)
