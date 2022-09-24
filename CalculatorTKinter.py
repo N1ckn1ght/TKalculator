@@ -73,6 +73,10 @@ def button_pressed(button):
             calc_input.set(string(value(calc_input.get()) / float(memoryValue)))
 
     elif (button == "√"):
+        temp = value(calc_input.get())
+        if (temp < 0):
+            memo_input.set("Square of a negative error!")
+            return
         calc_input.set(string(sqrt(value(calc_input.get()))))
 
     elif (button == "⅟"):
@@ -93,8 +97,8 @@ def button_pressed(button):
 
 
 def value(x):
-    # convert string to float with the case of empty string
-    if (x == ""):
+    # convert string to float with additional cases
+    if (x in ["", "-"]):
         return 0
     return float(x)
 
@@ -107,10 +111,9 @@ def string(x):
 def validate(input):
     try:
         value(input)
-        return True
     except ValueError:
         return False
-    return False
+    return True
 
 
 fonts = [tft.Font(family='Helvetica', size=18), tft.Font(family='Helvetica', size=12)]
